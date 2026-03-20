@@ -9,6 +9,7 @@ pub struct User {
     pub borrowed_sol: u64,
     pub borrowed_sol_shares: u64,
     pub deposited_usdc: u64,
+    pub deposited_usdc_shares: u64,
     pub borrowed_usdc: u64,
     pub borrowed_usdc_shares: u64,
     pub usdc_address: Pubkey,

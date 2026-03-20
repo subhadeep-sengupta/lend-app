@@ -75,7 +75,7 @@ impl<'info> InitBank<'info> {
 }
 
 impl<'info> InitUser<'info> {
-    pub fn init_user(&mut self, bumps: InitUserBumps) -> Result<()> {
+    pub fn init_user(&mut self, bumps: InitUserBumps, usdc_address: Pubkey) -> Result<()> {
         self.user_account.set_inner(User {
             owner: self.signer.key(),
             deposited_sol: 0,
@@ -83,9 +83,10 @@ impl<'info> InitUser<'info> {
             borrowed_sol: 0,
             borrowed_sol_shares: 0,
             deposited_usdc: 0,
+            deposited_usdc_shares: 0,
             borrowed_usdc: 0,
             borrowed_usdc_shares: 0,
-            usdc_address: Pubkey::default(),
+            usdc_address,
             last_updated: 0,
             bump: bumps.user_account,
         });

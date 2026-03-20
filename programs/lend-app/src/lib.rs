@@ -19,7 +19,11 @@ pub mod lend_app {
         ctx.accounts
             .init_bank(ctx.bumps, liquidation_threshold, max_ltv)
     }
-    pub fn init_user(ctx: Context<InitUser>) -> Result<()> {
-        ctx.accounts.init_user(ctx.bumps)
+    pub fn init_user(ctx: Context<InitUser>, usdc_address: Pubkey) -> Result<()> {
+        ctx.accounts.init_user(ctx.bumps, usdc_address)
+    }
+
+    pub fn deposit(ctx: Context<Deposit>, amount: u64) -> Result<()> {
+        ctx.accounts.deposit(amount)
     }
 }
